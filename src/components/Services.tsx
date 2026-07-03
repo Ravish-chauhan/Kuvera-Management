@@ -146,7 +146,7 @@ const Services = () => {
                   </div>
                   {/* Overlapping Icon Box */}
                   <div className="absolute -bottom-5 right-7 w-[3.25rem] h-[3.25rem] bg-[#23b6f0] rounded-[14px] flex items-center justify-center shadow-lg z-10 transition-transform duration-300 group-hover:-translate-y-1">
-                    {React.cloneElement(service.icon as React.ReactElement, {
+                    {React.cloneElement(service.icon as any, {
                       className: "text-white",
                       size: 24
                     })}
