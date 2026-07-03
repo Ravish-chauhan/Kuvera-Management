@@ -1,157 +1,159 @@
 'use client';
 
 import React from 'react';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-16 bg-gray-50 overflow-hidden relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 bg-gray-50 overflow-hidden relative">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header */}
-        <div className="text-center mb-16 max-w-3xl mx-auto">
-          <div className="flex items-center justify-center gap-3 mb-4">
+        {/* Header - Simplified & Reduced */}
+        <div className="text-center max-w-xl mx-auto mb-12">
+          <div className="flex items-center justify-center gap-2 mb-3">
             <span className="w-6 h-0.5 bg-primary rounded-full" />
-            <span className="text-primary text-xs font-bold uppercase tracking-[0.2em]">Get in Touch</span>
+            <span className="text-primary text-xs font-bold uppercase tracking-wider">Contact Us</span>
             <span className="w-6 h-0.5 bg-primary rounded-full" />
           </div>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-[#2F2F2F] mb-6 leading-tight">
-            Let's Discuss Your <span className="text-primary">Requirements</span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[#2F2F2F] mb-4">
+            Let's <span className="text-primary">Connect</span>
           </h2>
-          <p className="text-gray-500 text-lg">
-            Have questions about our facility management or staffing solutions? Reach out to us today and our team will get back to you promptly.
+          <p className="text-gray-500 text-sm">
+            Reach out to our experts for tailored facility management solutions.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+        {/* Unified Contact Card (Premium Design) */}
+        <div className="bg-white rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col lg:flex-row border border-gray-100">
           
-          {/* Left Column: Contact Info */}
-          <div className="flex flex-col justify-center">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              
-              {/* Address */}
-              <div className="flex flex-col gap-4">
-                <div className="w-14 h-14 rounded-full bg-[#eaf5fc] flex items-center justify-center text-primary">
-                  <MapPin className="w-6 h-6" />
+          {/* Left Side: Contact Info (Dark Blue Pane) */}
+          <div className="lg:w-2/5 bg-[#044c8c] text-white p-10 lg:p-12 relative overflow-hidden flex flex-col justify-between">
+            {/* Background decorative elements */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#105c9e] rounded-full blur-3xl -ml-20 -mb-20 pointer-events-none" />
+            
+            <div className="relative z-10 mb-12">
+              <h3 className="text-2xl font-bold mb-2">Get in touch</h3>
+              <p className="text-blue-200 text-sm">We'd love to hear from you. Our friendly team is always here to chat.</p>
+            </div>
+
+            <div className="relative z-10 flex flex-col gap-8 flex-grow">
+              <div className="flex items-start gap-4 group cursor-pointer">
+                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-white group-hover:text-[#044c8c] transition-colors duration-300">
+                  <Mail className="w-4 h-4 text-inherit" />
                 </div>
                 <div>
-                  <h4 className="text-xl font-bold text-[#2F2F2F] mb-2">Office Location</h4>
-                  <p className="text-gray-500 text-sm leading-relaxed">
-                    123 Business Avenue, Tech Park Phase 2,<br />
-                    Industrial Sector, 400001
-                  </p>
+                  <h4 className="font-semibold text-white mb-1">Email</h4>
+                  <p className="text-blue-100 text-sm">info@kuverafacility.com</p>
                 </div>
               </div>
 
-              {/* Phone */}
-              <div className="flex flex-col gap-4">
-                <div className="w-14 h-14 rounded-full bg-[#eaf5fc] flex items-center justify-center text-primary">
-                  <Phone className="w-6 h-6" />
+              <div className="flex items-start gap-4 group cursor-pointer">
+                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-white group-hover:text-[#044c8c] transition-colors duration-300">
+                  <Phone className="w-4 h-4 text-inherit" />
                 </div>
                 <div>
-                  <h4 className="text-xl font-bold text-[#2F2F2F] mb-2">Phone Number</h4>
-                  <p className="text-gray-500 text-sm leading-relaxed">
-                    +91 98765 43210<br />
-                    +91 12345 67890
+                  <h4 className="font-semibold text-white mb-1">Phone</h4>
+                  <p className="text-blue-100 text-sm">+91 98765 43210</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 group cursor-pointer">
+                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-white group-hover:text-[#044c8c] transition-colors duration-300">
+                  <MapPin className="w-4 h-4 text-inherit" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-white mb-1">Office</h4>
+                  <p className="text-blue-100 text-sm leading-relaxed">
+                    123 Business Park, Sector 45<br />
+                    New Delhi, India 110001
                   </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Side: Form Pane */}
+          <div className="lg:w-3/5 p-10 lg:p-12 bg-white">
+            <form className="flex flex-col gap-6">
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* First Name */}
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="firstName" className="text-xs font-bold text-gray-500 uppercase tracking-wide">First Name</label>
+                  <input 
+                    type="text" 
+                    id="firstName"
+                    placeholder="John"
+                    className="w-full bg-white border-b-2 border-gray-200 px-0 py-2 text-sm focus:outline-none focus:border-primary transition-all placeholder:text-gray-300"
+                  />
+                </div>
+
+                {/* Last Name */}
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="lastName" className="text-xs font-bold text-gray-500 uppercase tracking-wide">Last Name</label>
+                  <input 
+                    type="text" 
+                    id="lastName"
+                    placeholder="Doe"
+                    className="w-full bg-white border-b-2 border-gray-200 px-0 py-2 text-sm focus:outline-none focus:border-primary transition-all placeholder:text-gray-300"
+                  />
                 </div>
               </div>
 
               {/* Email */}
-              <div className="flex flex-col gap-4">
-                <div className="w-14 h-14 rounded-full bg-[#eaf5fc] flex items-center justify-center text-primary">
-                  <Mail className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-bold text-[#2F2F2F] mb-2">Email Address</h4>
-                  <p className="text-gray-500 text-sm leading-relaxed">
-                    info@kuverafacility.com<br />
-                    support@kuverafacility.com
-                  </p>
-                </div>
-              </div>
-
-              {/* Working Hours */}
-              <div className="flex flex-col gap-4">
-                <div className="w-14 h-14 rounded-full bg-[#eaf5fc] flex items-center justify-center text-primary">
-                  <Clock className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-bold text-[#2F2F2F] mb-2">Working Hours</h4>
-                  <p className="text-gray-500 text-sm leading-relaxed">
-                    Monday - Saturday<br />
-                    09:00 AM - 06:00 PM
-                  </p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          {/* Right Column: Form */}
-          <div className="bg-white rounded-2xl p-8 sm:p-10 shadow-[0_10px_40px_rgba(0,0,0,0.06)] border border-gray-100 relative">
-            <h3 className="text-2xl font-bold text-[#2F2F2F] mb-8">Send us a Message</h3>
-            
-            <form className="flex flex-col gap-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="flex flex-col gap-2">
-                  <label className="text-sm font-semibold text-gray-700">Full Name</label>
-                  <input 
-                    type="text" 
-                    placeholder="John Doe" 
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                  />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <label className="text-sm font-semibold text-gray-700">Phone Number</label>
-                  <input 
-                    type="tel" 
-                    placeholder="+91 98765 43210" 
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                  />
-                </div>
-              </div>
-
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-semibold text-gray-700">Email Address</label>
+                <label htmlFor="email" className="text-xs font-bold text-gray-500 uppercase tracking-wide">Email Address</label>
                 <input 
                   type="email" 
-                  placeholder="john@example.com" 
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                  id="email"
+                  placeholder="john@company.com"
+                  className="w-full bg-white border-b-2 border-gray-200 px-0 py-2 text-sm focus:outline-none focus:border-primary transition-all placeholder:text-gray-300"
                 />
               </div>
 
+              {/* Service Selection */}
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-semibold text-gray-700">Service Required</label>
-                <select className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-white text-gray-600">
-                  <option value="">Select a service...</option>
-                  <option value="facility">Facility Management</option>
-                  <option value="staffing">Manpower & Staffing</option>
-                  <option value="payroll">Payroll Management</option>
+                <label htmlFor="service" className="text-xs font-bold text-gray-500 uppercase tracking-wide">Service Required</label>
+                <select 
+                  id="service"
+                  defaultValue=""
+                  className="w-full bg-white border-b-2 border-gray-200 px-0 py-2 text-sm text-gray-700 focus:outline-none focus:border-primary transition-all appearance-none cursor-pointer"
+                >
+                  <option value="" disabled>Select a service...</option>
+                  <option value="housekeeping">Commercial Housekeeping</option>
                   <option value="security">Security Services</option>
-                  <option value="other">Other</option>
+                  <option value="payroll">Payroll Management</option>
+                  <option value="maintenance">Technical Maintenance</option>
+                  <option value="other">Other Inquiry</option>
                 </select>
               </div>
 
+              {/* Message */}
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-semibold text-gray-700">Your Message</label>
+                <label htmlFor="message" className="text-xs font-bold text-gray-500 uppercase tracking-wide">Your Message</label>
                 <textarea 
-                  rows={4}
-                  placeholder="Tell us about your requirements..." 
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none"
-                ></textarea>
+                  id="message"
+                  rows={3}
+                  placeholder="Tell us about your requirements..."
+                  className="w-full bg-white border-b-2 border-gray-200 px-0 py-2 text-sm focus:outline-none focus:border-primary transition-all resize-none placeholder:text-gray-300"
+                />
               </div>
 
+              {/* Submit Button */}
               <button 
-                type="submit" 
-                className="w-full bg-primary text-white font-bold py-4 rounded-lg hover:bg-[#103063] transition-colors mt-2 shadow-lg shadow-primary/30"
+                type="button"
+                className="mt-4 w-full inline-flex items-center justify-center gap-2 bg-primary text-white font-bold px-8 py-3.5 rounded-xl hover:bg-[#103063] transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 group"
               >
                 Send Message
+                <Send className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </button>
+
             </form>
           </div>
 
         </div>
+
       </div>
     </section>
   );
