@@ -131,13 +131,13 @@ const Services = () => {
                   position: 'absolute',
                   pointerEvents: Math.abs(offset) <= 1 ? 'auto' : 'none',
                 }}
-                className={`flex flex-col w-[80vw] sm:w-[45vw] lg:w-[280px] xl:w-[310px] h-auto min-h-[380px] bg-white rounded-[1.25rem] group ${
+                className={`flex flex-col w-[80vw] sm:w-[45vw] lg:w-[280px] xl:w-[310px] h-auto min-h-[380px] lg:min-h-[330px] xl:min-h-[380px] bg-white rounded-[1.25rem] group ${
                   isActive ? 'border-transparent' : 'border border-gray-100'
                 }`}
               >
                 {/* Top Image Section with Padding */}
                 <div className="relative p-4 pb-0">
-                  <div className="relative h-[160px] w-full rounded-2xl overflow-hidden shadow-inner">
+                  <div className="relative h-[160px] lg:h-[130px] xl:h-[160px] w-full rounded-2xl overflow-hidden shadow-inner">
                     <img 
                       src={service.image} 
                       alt={service.title} 
@@ -154,7 +154,7 @@ const Services = () => {
                 </div>
 
                 {/* Content Section */}
-                <div className="p-6 pt-9 flex flex-col flex-grow">
+                <div className="p-6 pt-9 lg:p-5 lg:pt-7 xl:p-6 xl:pt-9 flex flex-col flex-grow">
                   <h3 className="text-[1.15rem] font-bold text-[#103063] mb-3 leading-tight">
                     {service.title}
                   </h3>
