@@ -59,7 +59,7 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-40 pb-20 lg:pt-48 lg:pb-32 bg-[#051124] overflow-hidden">
+      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-[#051124] overflow-hidden">
         {/* Abstract Background Elements */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-[120px] -mr-20 -mt-20 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#105c9e]/20 rounded-full blur-[120px] -ml-20 -mb-20 pointer-events-none" />

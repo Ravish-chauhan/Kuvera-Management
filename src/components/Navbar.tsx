@@ -153,7 +153,7 @@ const Navbar = () => {
           {/* ── Mobile Hamburger ── */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden p-2 flex items-center justify-center transition-colors duration-200 ${
+            className={`md:hidden p-2 mr-2 flex items-center justify-center transition-colors duration-200 ${
               scrolled || isOpen ? 'text-gray-800' : 'text-white'
             }`}
             aria-label="Toggle menu"
@@ -166,7 +166,7 @@ const Navbar = () => {
                 exit={{    rotate:  90, opacity: 0 }}
                 transition={{ duration: 0.15 }}
               >
-                {isOpen ? <X size={22} /> : <Menu size={22} />}
+                {isOpen ? <X size={26} /> : <Menu size={26} />}
               </motion.div>
             </AnimatePresence>
           </button>

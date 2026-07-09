@@ -6,28 +6,28 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#051124] text-white pt-20 pb-8 relative overflow-hidden border-t border-white/5">
+    <footer className="bg-[#051124] text-white pt-12 sm:pt-20 pb-8 relative overflow-hidden border-t border-white/5">
       {/* Decorative Background Blur */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-primary/20 rounded-full blur-[120px] -mt-20 -ml-20 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
-          
+
           {/* Brand Info (Col Span 4) */}
           <div className="lg:col-span-4 lg:pr-8">
-            <Link href="/" className="flex items-center mb-8 -ml-12 sm:-ml-4">
-              <div className="relative h-14 sm:h-16 flex items-center z-20">
+            <Link href="/" className="flex items-center mb-8 -ml-16 sm:-ml-20 md:-ml-24 lg:-ml-28">
+              <div className="relative h-16 sm:h-20 flex items-center z-20">
                 <img
                   src="/logo2.png"
                   alt="Kuvera Management Services"
-                  className="h-full w-auto object-contain scale-[1.7] sm:scale-[1.9] origin-left translate-y-1.5"
+                  className="h-full w-auto object-contain scale-[1.6] sm:scale-[1.9] origin-left translate-y-1.5"
                 />
               </div>
-              <div className="flex flex-col uppercase tracking-wider text-left z-10 ml-2 md:ml-5 lg:ml-8 pt-1">
-                <span className="text-primary font-black text-sm mb-0.5 leading-none">
+              <div className="flex flex-col uppercase tracking-wider text-left z-10 pt-1 ml-2 md:ml-5 lg:ml-8">
+                <span className="text-primary font-black text-sm sm:text-base mb-0.5 leading-none">
                   Management
                 </span>
-                <span className="font-semibold text-[11px] tracking-widest leading-none text-white/60">
+                <span className="font-semibold text-[11px] sm:text-[13px] tracking-widest leading-none text-white/60">
                   Services
                 </span>
               </div>
