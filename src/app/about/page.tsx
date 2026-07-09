@@ -5,7 +5,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Asterisk, Shield, Target, Users, Zap, CheckCircle2, Building2, Briefcase, FileSpreadsheet, Sparkles, HardHat } from 'lucide-react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import CountUp from 'react-countup';
 
 const EightPointAsterisk = ({ className }: { className?: string }) => (
@@ -38,7 +38,7 @@ const marqueeWords = [
 // Tripling the array for seamless infinite marquee loop
 const marqueeContent = [...marqueeWords, ...marqueeWords, ...marqueeWords];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -48,7 +48,7 @@ const containerVariants = {
   }
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
 };
