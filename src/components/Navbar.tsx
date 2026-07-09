@@ -5,18 +5,39 @@ import Link from 'next/link';
 import { Menu, X, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import { usePathname } from 'next/navigation';
+
 const navLinks = [
   { name: 'Home',     href: '/'         },
-  { name: 'About Us', href: '#about'    },
-  { name: 'Services', href: '#services' },
-  { name: 'Our Team', href: '#team'     },
-  { name: 'Contact',  href: '#contact'  },
+  { name: 'About Us', href: '/about'    },
+  { name: 'Services', href: '/#services' },
+  { name: 'Our Team', href: '/#team'     },
+  { name: 'Contact',  href: '/#contact'  },
 ];
 
 const Navbar = () => {
+  const pathname = usePathname();
   const [isOpen, setIsOpen]     = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [active, setActive]     = useState('Home');
+  const [active, setActive]     = useState('');
+
+  // Sync active state based on route & hash
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash;
+      if (pathname === '/about') {
+        setActive('About Us');
+      } else if (hash === '#services') {
+        setActive('Services');
+      } else if (hash === '#team') {
+        setActive('Our Team');
+      } else if (hash === '#contact') {
+        setActive('Contact');
+      } else {
+        setActive('Home');
+      }
+    }
+  }, [pathname]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -33,7 +54,7 @@ const Navbar = () => {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        scrolled
+        scrolled || isOpen
           ? 'bg-white shadow-[0_2px_20px_rgba(0,0,0,0.10)]'
           : 'bg-transparent'
       }`}
@@ -46,7 +67,7 @@ const Navbar = () => {
           <Link
             href="/"
             onClick={() => setActive('Home')}
-            className="flex-shrink-0 flex items-center -ml-10 sm:-ml-16 md:-ml-24 lg:-ml-28"
+            className="flex-shrink-0 flex items-center -ml-16 sm:-ml-20 md:-ml-24 lg:-ml-28"
           >
             <div className="relative h-16 sm:h-20 flex items-center z-20">
               <img
@@ -55,13 +76,13 @@ const Navbar = () => {
                 className="h-full w-auto object-contain scale-[1.6] sm:scale-[1.9] origin-left translate-y-1.5"
               />
             </div>
-            <div className="flex flex-col uppercase tracking-wider text-left z-10 pt-1 ml-4 sm:ml-8">
+            <div className="flex flex-col uppercase tracking-wider text-left z-10 pt-1 ml-2 md:ml-5 lg:ml-8">
               <span className="text-primary font-black text-sm sm:text-base mb-0.5 leading-none">
                 Management
               </span>
               <span
                 className={`font-semibold text-[11px] sm:text-[13px] tracking-widest leading-none transition-colors duration-300 ${
-                  scrolled ? 'text-gray-500' : 'text-white/60'
+                  scrolled || isOpen ? 'text-gray-500' : 'text-white/60'
                 }`}
               >
                 Services
@@ -132,10 +153,8 @@ const Navbar = () => {
           {/* ── Mobile Hamburger ── */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden w-10 h-10 flex items-center justify-center rounded-lg transition-colors duration-200 ${
-              scrolled
-                ? 'bg-gray-100 hover:bg-gray-200 text-gray-800'
-                : 'bg-white/10 hover:bg-white/20 text-white'
+            className={`md:hidden p-2 flex items-center justify-center transition-colors duration-200 ${
+              scrolled || isOpen ? 'text-gray-800' : 'text-white'
             }`}
             aria-label="Toggle menu"
           >
@@ -154,37 +173,31 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* ── Mobile Menu ── */}
+      {/* ── Mobile Menu Full Screen Overlay ── */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{    opacity: 0, height: 0 }}
-            transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className={`md:hidden overflow-hidden border-t ${
-              scrolled
-                ? 'bg-white border-gray-100'
-                : 'bg-[#0d1b3e]/95 border-white/10 backdrop-blur-md'
-            }`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className="md:hidden fixed top-[88px] left-0 w-full h-[calc(100vh-88px)] bg-white z-40 overflow-y-auto"
           >
-            <div className="px-4 py-4 flex flex-col gap-1">
+            <div className="px-6 py-8 flex flex-col gap-6">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.name}
-                  initial={{ opacity: 0, x: -16 }}
+                  initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 }}
+                  transition={{ delay: i * 0.08 }}
                 >
                   <Link
                     href={link.href}
                     onClick={() => { setActive(link.name); setIsOpen(false); }}
-                    className={`flex items-center px-4 py-3 rounded-lg text-sm font-semibold transition-colors duration-150 ${
+                    className={`block text-2xl font-bold transition-colors duration-200 ${
                       active === link.name
-                        ? 'bg-primary text-white'
-                        : scrolled
-                        ? 'text-gray-700 hover:text-primary hover:bg-primary/5'
-                        : 'text-white/70 hover:text-white hover:bg-white/10'
+                        ? 'text-primary'
+                        : 'text-gray-800 hover:text-primary'
                     }`}
                   >
                     {link.name}
@@ -192,16 +205,21 @@ const Navbar = () => {
                 </motion.div>
               ))}
 
-              <div className="pt-3 pb-1 px-1">
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4 }}
+                className="mt-8 pt-8 border-t border-gray-100"
+              >
                 <a
                   href="tel:+911234567890"
-                  className="flex items-center justify-center gap-2 w-full bg-primary hover:bg-primary-dark text-white py-3 rounded-lg font-bold text-sm transition-colors duration-200"
+                  className="flex items-center justify-center gap-3 w-full bg-primary hover:bg-[#103063] text-white py-4 rounded-xl font-bold text-lg transition-colors duration-200 shadow-lg shadow-primary/25"
                   onClick={() => setIsOpen(false)}
                 >
-                  <Phone size={15} />
+                  <Phone size={20} />
                   +91 12345 67890
                 </a>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         )}

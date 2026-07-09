@@ -31,115 +31,97 @@ const testimonials = [
   },
 ];
 
+const TestimonialCard = ({ testimonial }: { testimonial: any }) => (
+  <>
+    <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full border-[4px] border-white overflow-hidden shadow-sm">
+      <img src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover" />
+    </div>
+    
+    <h4 className="font-bold text-base text-[#2F2F2F] mt-1">{testimonial.name}</h4>
+    <p className="text-gray-400 text-xs mb-2">{testimonial.role}</p>
+    
+    <div className="flex justify-center gap-0.5 mb-3">
+      {[...Array(testimonial.rating)].map((_, i) => (
+        <Star key={i} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
+      ))}
+    </div>
+    
+    <p className="text-gray-500 text-sm leading-snug">
+      "{testimonial.content}"
+    </p>
+  </>
+);
+
 const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const next = () => {
-    setActiveIndex((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prev = () => {
-    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
+  const next = () => setActiveIndex((prev) => (prev + 1) % testimonials.length);
+  const prev = () => setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   const currentTestimonial = testimonials[activeIndex];
-  const nextTestimonial = testimonials[(activeIndex + 1) % testimonials.length];
 
   return (
-    <section id="testimonials" className="py-24 bg-gray-50 relative overflow-hidden">
+    <section id="testimonials" className="py-20 bg-gray-100 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-center">
-          
-          {/* Left Side: Text Content */}
-          <div className="lg:col-span-5 lg:pr-8">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-[#2F2F2F] mb-6 leading-tight">
-              Hear From Our Satisfied <br className="hidden lg:block"/>
-              Clients Have to Say
-            </h2>
-            <p className="text-gray-500 text-lg leading-relaxed">
-              We take immense pride in delivering top-tier facility and workforce solutions. Don't just take our word for it—read what our partners have to say about our services.
-            </p>
+        
+        {/* Header */}
+        <div className="text-center mb-12">
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <span className="w-6 h-0.5 bg-primary rounded-full" />
+            <span className="text-primary text-xs font-bold uppercase tracking-[0.2em]">Testimonials</span>
+            <span className="w-6 h-0.5 bg-primary rounded-full" />
           </div>
-
-          {/* Right Side: Cards Slider */}
-          <div className="lg:col-span-7 relative">
-            <div className="flex gap-6 sm:gap-8 overflow-hidden pt-14 pb-12 px-4 -mx-4 sm:px-8 sm:-mx-8">
-              
-              {/* Active Card */}
-              <AnimatePresence mode="popLayout">
-                <motion.div
-                  key={`active-${currentTestimonial.id}`}
-                  initial={{ opacity: 0, x: 100 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -100 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  className="bg-white rounded-[2rem] p-8 pt-14 shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative flex-1 min-w-[280px] max-w-[350px] text-center border border-gray-100 z-10 shrink-0"
-                >
-                  {/* Floating Avatar */}
-                  <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-[6px] border-white overflow-hidden shadow-md">
-                    <img src={currentTestimonial.image} alt={currentTestimonial.name} className="w-full h-full object-cover" />
-                  </div>
-                  
-                  <h4 className="font-bold text-lg text-[#2F2F2F]">{currentTestimonial.name}</h4>
-                  <p className="text-gray-400 text-sm mb-3">{currentTestimonial.role}</p>
-                  
-                  <div className="flex justify-center gap-1 mb-6">
-                    {[...Array(currentTestimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                  
-                  <p className="text-gray-500 text-[15px] leading-relaxed">
-                    {currentTestimonial.content}
-                  </p>
-                </motion.div>
-              </AnimatePresence>
-
-              {/* Next Card (Preview) - Faded and slightly smaller */}
-              <motion.div
-                key={`preview-${nextTestimonial.id}`}
-                className="bg-white rounded-[2rem] p-8 pt-14 shadow-[0_5px_15px_rgba(0,0,0,0.03)] relative flex-1 min-w-[280px] max-w-[350px] text-center border border-gray-50 opacity-40 scale-95 origin-left shrink-0 hidden sm:block pointer-events-none"
-              >
-                <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full border-[6px] border-white overflow-hidden">
-                  <img src={nextTestimonial.image} alt={nextTestimonial.name} className="w-full h-full object-cover" />
-                </div>
-                
-                <h4 className="font-bold text-lg text-[#2F2F2F]">{nextTestimonial.name}</h4>
-                <p className="text-gray-400 text-sm mb-3">{nextTestimonial.role}</p>
-                
-                <div className="flex justify-center gap-1 mb-6">
-                  {[...Array(nextTestimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                
-                <p className="text-gray-500 text-[15px] leading-relaxed">
-                  {nextTestimonial.content}
-                </p>
-              </motion.div>
-
-            </div>
-
-            {/* Navigation Arrows */}
-            <div className="flex justify-end gap-4 mt-2 pr-4 sm:pr-12 lg:pr-24">
-              <button 
-                onClick={prev}
-                className="w-12 h-12 rounded-full bg-[#f8f9fa] text-gray-600 flex items-center justify-center hover:bg-gray-200 transition-colors"
-                aria-label="Previous Testimonial"
-              >
-                <ArrowLeft className="w-5 h-5" />
-              </button>
-              <button 
-                onClick={next}
-                className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center hover:bg-[#103063] shadow-lg shadow-primary/30 transition-colors"
-                aria-label="Next Testimonial"
-              >
-                <ArrowRight className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
-
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
+            What Our <span className="text-primary">Clients Say.</span>
+          </h2>
         </div>
+
+        {/* Desktop: 3 Cards in a Row */}
+        <div className="hidden md:grid grid-cols-3 gap-8 pt-4">
+          {testimonials.map((testimonial) => (
+            <div 
+              key={testimonial.id}
+              className="bg-white rounded-[2rem] p-6 pt-10 shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative text-center border border-gray-100 hover:-translate-y-2 transition-transform duration-300"
+            >
+              <TestimonialCard testimonial={testimonial} />
+            </div>
+          ))}
+        </div>
+
+        {/* Mobile: Swipable Slider */}
+        <div className="md:hidden pt-4 relative">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`active-${currentTestimonial.id}`}
+              initial={{ opacity: 0, scale: 0.95, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -10 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="bg-white rounded-[2rem] p-6 pt-10 shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative mx-auto max-w-[350px] text-center border border-gray-100"
+            >
+              <TestimonialCard testimonial={currentTestimonial} />
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Mobile Navigation Arrows */}
+          <div className="flex justify-center gap-6 mt-8">
+            <button 
+              onClick={prev}
+              className="w-12 h-12 rounded-full bg-[#f8f9fa] text-gray-600 flex items-center justify-center hover:bg-gray-200 shadow-md transition-colors"
+              aria-label="Previous Testimonial"
+            >
+              <ArrowLeft className="w-5 h-5" />
+            </button>
+            <button 
+              onClick={next}
+              className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center shadow-lg shadow-primary/30 transition-colors"
+              aria-label="Next Testimonial"
+            >
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+
       </div>
     </section>
   );

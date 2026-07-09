@@ -89,7 +89,7 @@ const Hero = () => {
             {/* Primary */}
             <Link
               href="#services"
-              className="group inline-flex items-center gap-3 bg-[#0d1b3e] hover:bg-[#162d5e] text-white font-bold px-7 py-3.5 rounded-lg transition-colors duration-200 text-sm"
+              className="group inline-flex items-center gap-3 bg-primary hover:bg-[#103063] text-white font-bold px-7 py-3.5 rounded-lg transition-colors duration-200 text-sm shadow-lg shadow-primary/30"
             >
               Explore Services
               <ArrowRight size={17} className="group-hover:translate-x-1 transition-transform duration-200" />

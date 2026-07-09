@@ -12,37 +12,38 @@ export default function WhatsAppWidget() {
   const whatsappUrl = `https://wa.me/${whatsappNumber}`;
 
   useEffect(() => {
-    // Show the message briefly after page load
-    const initialTimer = setTimeout(() => {
-      setShowMessage(true);
-    }, 2000);
-
-    // Set up a recurring interval to show/hide the message
+    // Show the message periodically to grab attention (12s total cycle)
     const interval = setInterval(() => {
       setShowMessage(true);
-      setTimeout(() => {
-        setShowMessage(false);
-      }, 5000); // stay visible for 5 seconds
-    }, 10000); // triggers every 10 seconds
+      setTimeout(() => setShowMessage(false), 8000); // Hide after 8 seconds
+    }, 12000); // Run every 12 seconds
 
-    // Clean up timers on unmount
+    // Initial show after 1 second
+    const timeout = setTimeout(() => {
+      setShowMessage(true);
+      setTimeout(() => setShowMessage(false), 8000);
+    }, 1000);
+
     return () => {
-      clearTimeout(initialTimer);
       clearInterval(interval);
+      clearTimeout(timeout);
     };
   }, []);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex items-center justify-end gap-3">
-      {/* Sliding Message Bubble */}
+    <div 
+      className="fixed bottom-6 right-6 z-50 flex items-center justify-end gap-3"
+      onMouseLeave={() => setShowMessage(false)}
+    >
+      {/* Animated Message Bubble */}
       <AnimatePresence>
         {showMessage && (
           <motion.div
-            initial={{ opacity: 0, x: 20, scale: 0.95 }}
+            initial={{ opacity: 0, x: 20, scale: 0.9 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
-            exit={{ opacity: 0, x: 20, scale: 0.95 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="bg-white px-3 py-1.5 rounded-md shadow-lg border border-gray-100 hidden sm:flex items-center"
+            exit={{ opacity: 0, x: 20, scale: 0.9 }}
+            transition={{ duration: 0.3 }}
+            className="hidden md:flex bg-white px-3 py-1.5 rounded-md shadow-[0_4px_15px_rgba(0,0,0,0.1)] border border-gray-100 items-center"
           >
             <p className="text-[13px] whitespace-nowrap">
               <span className="text-gray-600">Need Help? </span>
@@ -57,7 +58,7 @@ export default function WhatsAppWidget() {
         href={whatsappUrl} 
         target="_blank" 
         rel="noopener noreferrer"
-        className="relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 group overflow-hidden flex-shrink-0"
+        className="relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366] text-white rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 group overflow-hidden flex-shrink-0"
         aria-label="Contact us on WhatsApp"
         onMouseEnter={() => setShowMessage(true)} // Also show message on hover
       >

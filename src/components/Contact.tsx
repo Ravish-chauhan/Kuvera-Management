@@ -5,7 +5,7 @@ import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-20 bg-gray-50 overflow-hidden relative">
+    <section id="contact" className="py-20 bg-gray-100 overflow-hidden relative">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header - Simplified & Reduced */}
@@ -15,8 +15,8 @@ const Contact = () => {
             <span className="text-primary text-xs font-bold uppercase tracking-wider">Contact Us</span>
             <span className="w-6 h-0.5 bg-primary rounded-full" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#2F2F2F] mb-4">
-            Let's <span className="text-primary">Connect</span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
+            Let's <span className="text-primary">Connect.</span>
           </h2>
           <p className="text-gray-500 text-sm">
             Reach out to our experts for tailored facility management solutions.

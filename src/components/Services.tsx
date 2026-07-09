@@ -68,14 +68,14 @@ const Services = () => {
   const visibleItems = extendedServices.slice(activeIndex - 2, activeIndex + 3);
 
   return (
-    <section id="services" className="relative py-24 bg-gray-50 overflow-hidden">
+    <section id="services" className="relative pt-16 lg:pt-24 pb-16 bg-gray-100 overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center mb-2 flex flex-col items-center justify-center">
+        <div className="text-center -mb-8 lg:-mb-4 flex flex-col items-center justify-center">
           
           {/* Label & Watermark Wrapper */}
-          <div className="relative flex items-center justify-center w-full py-4 lg:py-2 mt-4">
+          <div className="relative flex items-center justify-center w-full py-2 lg:py-2 mt-2 lg:mt-4">
             {/* Large outlined "SERVICES" watermark text */}
             <div
               className="absolute left-1/2 select-none pointer-events-none z-0"
@@ -109,7 +109,7 @@ const Services = () => {
         </div>
 
         {/* Infinite 3D Carousel */}
-        <div className="relative w-full max-w-[100vw] lg:max-w-[984px] xl:max-w-[1074px] h-[600px] mx-auto flex items-center justify-center overflow-hidden">
+        <div className="relative w-[100vw] left-1/2 -translate-x-1/2 sm:w-full sm:left-auto sm:translate-x-0 lg:max-w-[984px] xl:max-w-[1074px] h-[600px] mx-auto flex items-center justify-center overflow-hidden">
           {visibleItems.map((service, localIndex) => {
             const offset = localIndex - 2; 
             const isActive = offset === 0;
@@ -175,7 +175,7 @@ const Services = () => {
         </div>
 
         {/* Carousel Controls */}
-        <div className="flex justify-center gap-4 relative z-20 -mt-12 pb-12">
+        <div className="flex justify-center gap-4 relative z-20 -mt-12 pb-6">
           <button 
             onClick={prev}
             className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors"

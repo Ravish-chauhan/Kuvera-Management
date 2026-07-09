@@ -42,20 +42,15 @@ const Blog = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-          <div className="max-w-2xl">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="w-6 h-0.5 bg-primary rounded-full" />
-              <span className="text-primary text-xs font-bold uppercase tracking-[0.2em]">Our Blog</span>
-            </div>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-[#2F2F2F] leading-tight">
-              Latest Insights & <span className="text-primary">News</span>
-            </h2>
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="flex items-center justify-center gap-3 mb-3 mt-2">
+            <span className="w-6 h-0.5 bg-primary rounded-full" />
+            <span className="text-primary text-xs font-bold uppercase tracking-[0.2em]">Our Blog</span>
+            <span className="w-6 h-0.5 bg-primary rounded-full" />
           </div>
-          <button className="flex-shrink-0 inline-flex items-center gap-2 text-primary font-semibold hover:text-[#103063] transition-colors group">
-            View All Posts
-            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-          </button>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
+            Latest Insights & <span className="text-primary">News.</span>
+          </h2>
         </div>
 
         {/* Blog Layout (Magazine Style) */}

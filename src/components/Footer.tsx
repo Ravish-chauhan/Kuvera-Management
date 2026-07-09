@@ -15,15 +15,15 @@ const Footer = () => {
           
           {/* Brand Info (Col Span 4) */}
           <div className="lg:col-span-4 lg:pr-8">
-            <Link href="/" className="flex items-center mb-8 -ml-4">
-              <div className="relative h-14 flex items-center z-20">
+            <Link href="/" className="flex items-center mb-8 -ml-12 sm:-ml-4">
+              <div className="relative h-14 sm:h-16 flex items-center z-20">
                 <img
                   src="/logo2.png"
                   alt="Kuvera Management Services"
-                  className="h-full w-auto object-contain scale-[1.5] origin-left translate-y-1"
+                  className="h-full w-auto object-contain scale-[1.7] sm:scale-[1.9] origin-left translate-y-1.5"
                 />
               </div>
-              <div className="flex flex-col uppercase tracking-wider text-left z-10 ml-4">
+              <div className="flex flex-col uppercase tracking-wider text-left z-10 ml-2 md:ml-5 lg:ml-8 pt-1">
                 <span className="text-primary font-black text-sm mb-0.5 leading-none">
                   Management
                 </span>
@@ -58,7 +58,7 @@ const Footer = () => {
             <h3 className="text-sm font-bold text-white uppercase tracking-wider mb-6">Company</h3>
             <ul className="space-y-3">
               <li><Link href="/" className="text-gray-400 hover:text-primary transition-colors text-sm">Home</Link></li>
-              <li><Link href="#about" className="text-gray-400 hover:text-primary transition-colors text-sm">About Us</Link></li>
+              <li><Link href="/about" className="text-gray-400 hover:text-primary transition-colors text-sm">About Us</Link></li>
               <li><Link href="#services" className="text-gray-400 hover:text-primary transition-colors text-sm">Our Services</Link></li>
               <li><Link href="#testimonials" className="text-gray-400 hover:text-primary transition-colors text-sm">Testimonials</Link></li>
               <li><Link href="#contact" className="text-gray-400 hover:text-primary transition-colors text-sm">Contact Us</Link></li>

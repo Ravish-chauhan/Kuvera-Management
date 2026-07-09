@@ -24,14 +24,18 @@ const reasons = [
 
 const WhyChooseUs = () => {
   return (
-    <section className="py-16 bg-gray-50 overflow-hidden">
+    <section className="py-16 bg-gray-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           
           {/* Left Content */}
           <div className="w-full lg:w-1/2 flex flex-col">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#2F2F2F] mb-3 tracking-tight">
-              Why Choose Us
+            <div className="flex items-center gap-3 mb-3">
+              <span className="w-6 h-0.5 bg-primary rounded-full" />
+              <span className="text-primary text-xs font-bold uppercase tracking-[0.2em]">Why Us</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
+              Why <span className="text-primary">Choose Us.</span>
             </h2>
             <p className="text-gray-500 text-sm leading-relaxed mb-8 max-w-[500px]">
               We deliver comprehensive facility management and manpower solutions designed to streamline your operations, ensure strict compliance, and drive cost-efficiency so you can focus on your core business.

@@ -20,7 +20,7 @@ const About = () => {
       style={{ fontFamily: 'var(--font-jakarta), sans-serif' }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
           {/* ── Image Section ── */}
           <motion.div
@@ -28,7 +28,7 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.7 }}
-            className="relative order-1 lg:order-1 mb-10 lg:mb-0 pb-14 mx-auto lg:mx-0"
+            className="relative order-1 lg:order-1 lg:mb-0 pb-14 mx-auto lg:mx-0"
           >
             {/* ── Solid Navy Vertical Bar — top right ── */}
             <div className="absolute top-2 right-[3%] sm:right-[13%] w-2.5 h-40 bg-primary rounded-full z-[5]" />
