@@ -64,7 +64,7 @@ export default function Home() {
       <Reveal><Services /></Reveal>
       <Reveal><HowItWorks /></Reveal>
       <Reveal><WhyChooseUs /></Reveal>
-      <Reveal><Stats /></Reveal>
+      <Stats />
       <Reveal><Testimonials /></Reveal>
 
       {/* Services Marquee Section (After Testimonials) */}
